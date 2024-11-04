@@ -7,7 +7,7 @@ import java.util.Scanner;
 	int fact = 1;
 	for(int i=1; i<=num; i++) 
 	{
-	System.out.println("5*"+i);
+	System.out.println(num+"*"+i);
 	fact = fact*i;
 	}
 	System.out.println(num+"!="+fact);
