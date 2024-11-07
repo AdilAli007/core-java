@@ -1,19 +1,19 @@
 /* 	
 	Required Output
 
-	1 	5
-	2	10
-	3 	15
-	4	20
-	5	25
+	1 	1
+	4	16
+	9	81
+	16	256
+	25	625
 
 */
 
-class NumberPattern {
+class NumberPatternThree {
 	public static void main(String args[]) {
 	for(int i=1; i<=5; i++)
 	{
-	System.out.println(i+"    "+(i*5));
+	System.out.println((i*i)+"    "+(i*i)*(i*i));
 	}  
    }
 }
