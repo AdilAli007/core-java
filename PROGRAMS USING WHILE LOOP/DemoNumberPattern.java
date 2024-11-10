@@ -15,6 +15,7 @@ class DemoNumberPattern {
 	while( i <= 5 )
 	{
 	System.out.println(i+"    "+(i*5));
+	i++;
 	}  
    }
 }
