@@ -5,6 +5,7 @@ import java.util.Scanner;
 	System.out.print("Enter any number : ");
 	int num = sc.nextInt();
 	int i = 1;
+	int j = 0;
 	int sum = 0;
 	while( i < num) 
 	{

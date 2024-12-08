@@ -9,6 +9,7 @@ import java.util.Scanner;
 	int temp = num;
 	int result;
 	int fact = 1;
+	int i = 1;
 	for(; num > 0 ;)
 	{ 
 		result = num % 10;	 	
