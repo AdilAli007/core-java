@@ -14,7 +14,7 @@ class DuplicateElement
 	
 	System.out.println("\nFirst Duplicate elements is :");
 	
-	boolean found = false;
+	
 	for(int i=0; i<myArray.length; i++)
 	{
 	  int count = 0;
