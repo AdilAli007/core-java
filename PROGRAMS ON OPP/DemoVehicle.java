@@ -1,10 +1,10 @@
 class DemoVehicle {
 
 	public static void main(String args[]) {
-	//Vehicle obj = new Vehicle();
-	Car obj1 = new Car();
-	//obj.drive();
-	obj1.drive();
+	Vehicle obj = new Vehicle();
+	//Car obj1 = new Car();
+	obj.drive();
+	//obj1.drive();
  }
 }
 
