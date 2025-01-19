@@ -10,7 +10,7 @@ class CarDemo
 	e1.showB();
  }
 }
-class Engine
+class Engine 		// Car HAS-A engine , HAS-A relationship
 {
 	void showB()
 	{

@@ -1,4 +1,4 @@
-// Inheritance : It is known as inheriting properties of parent class into child class
+// Inheritance : It is known as inheriting properties of parent class into child class. Inheritance means IS-A relationship .
 
 class SingleInheritanceDemo
 {
