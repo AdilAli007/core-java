@@ -5,20 +5,33 @@ import java.util.Scanner;
 	System.out.print("Enter any number : ");
 	int num = sc.nextInt();
 	int num1 = num ;
-	int sum = 0 ;
-	int result ;
-	while( num > 0 ) 
+	int length = 0 ;
+	while( num1 > 0 ) 
 	{
-		result = num % 10;
-		sum = sum + result * result * result;
-		num = num / 10;
+		num1 = num1 /10;
+		length = length + 1;
 	}
-	if(num1 == sum)
+	int num2 = num;
+	int remainder;
+	int arms = 0;
+	while(num2 > 0)
 	{
-	System.out.println(sum+" It is an Armstrong Number");
+		remainder = num2 % 10;
+		multiply = 1;
+		for(int i = 1; i<=length; i++)
+		{
+		  	multiply = remainder * multiply;
+		}
+	arms = arms + multiply;
+	num2 = num2 / 10;
+	}
+	
+	if(num == arms)
+	{
+	System.out.println(num+" It is an Armstrong Number");
 	}
 	else {
-	System.out.println(sum+" It is not an Armstrong Number");
+	System.out.println(num+" It is not an Armstrong Number");
 	}
     }
 }  
