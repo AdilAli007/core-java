@@ -3,8 +3,8 @@
 
 public interface LinearSearch {
 
-    void LinearSearching();
-    default void StringSearch(){
+    void linearSearching();
+    default void stringSearch(){
         String [] array = {"ADIL","ALI","JAMALI"};
         String item = "ALI";
         int temp = 0;

@@ -19,8 +19,8 @@ public class DemoLamdaExpression1 {
             System.out.println("Element not found: ");
         }
     };
-    linearSearch.LinearSearching();
-    linearSearch.StringSearch();
+    linearSearch.linearSearching();
+    linearSearch.stringSearch();
 
         //System.out.println("Binary Search Algorithm");
 
@@ -49,7 +49,7 @@ public class DemoLamdaExpression1 {
                 System.out.println("Element not found.");
             }
         };
-        binarySearch.BinarySearching();
+        binarySearch.binarySearching();
 
         //System.out.println("Armstrong Number 153 ");
 
@@ -79,7 +79,7 @@ public class DemoLamdaExpression1 {
               System.out.println("It is not an armstrong number");
           }
         };
-        armstrongNumber.ArmsNum();
+        armstrongNumber.armsNum();
 
         //System.out.println("Prime Number 153 ");
 
@@ -100,12 +100,14 @@ public class DemoLamdaExpression1 {
                 System.out.println("It is not a prime number");
             }
         };
-        primeNumber.PrimeNo();
+        primeNumber.primeNo();
+
+        //System.out.println("Fibonacci Series ");
 
          FibonacciSeries fibonacciSeries = ()->{
             int num = 5 ;
             int i = 1, a = 0 , b = 1 ;
-            System.out.print("Fibonacii Series: "+a+" "+b+" ");
+            System.out.print("Fibonacii Series: "+a+" "+b+" "+" ");
             while(i <= num){
                 int c = a+b ;
                 System.out.print(c+" ");
@@ -114,8 +116,7 @@ public class DemoLamdaExpression1 {
                 i++;
             }
         };
-         fibonacciSeries.FiboSeries();
-
+         fibonacciSeries.fiboSeries();
 
     }
 }

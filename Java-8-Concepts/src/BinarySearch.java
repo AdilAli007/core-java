@@ -2,6 +2,6 @@
 @FunctionalInterface
 
 public interface BinarySearch {
-    void BinarySearching();
+    void binarySearching();
 
 }

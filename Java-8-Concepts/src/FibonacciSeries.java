@@ -1,5 +1,5 @@
 @FunctionalInterface
 
 public interface FibonacciSeries {
-    void FiboSeries();
+    void fiboSeries();
 }

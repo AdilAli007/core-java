@@ -1,5 +1,5 @@
 @FunctionalInterface
 
 public interface PrimeNumber {
-    void PrimeNo();
+    void primeNo();
 }
