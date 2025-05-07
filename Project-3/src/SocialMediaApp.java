@@ -1,12 +1,14 @@
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 
 public class SocialMediaApp {
     List<User> users = new ArrayList<>();
     User loggedInUser = null;
 
-        public void displayMainMenu() {
+    public void displayMainMenu() throws IOException {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("||||||||||||||||||||||||||||||||||||||| WELCOME TO SOCIAL MEDIA APP ||||||||||||||||||||||||||||||||||||||||||||");
@@ -17,7 +19,7 @@ public class SocialMediaApp {
         System.out.println("==================================");
         System.out.print("ENTER YOUR CHOICE OF NUMBER : ");
 
-        while(true) {
+        while (true) {
 
             int num = scanner.nextInt();
             if (num == 1) {
@@ -32,7 +34,7 @@ public class SocialMediaApp {
         }
     }
 
-    public void createAccount() {
+    public void createAccount() throws IOException {
         System.out.println("==================================");
         Scanner scanner = new Scanner(System.in);
 
@@ -49,11 +51,13 @@ public class SocialMediaApp {
 
         User user = new User(userId, username, email, contact, password);
         users.add(user);
+        this.saveUsers();
+
         System.out.println("Account created successfully.");
         System.out.println("==================================");
     }
 
-    public void login() {
+    public void login() throws IOException {
         System.out.println("Enter Login Details :");
         System.out.println("==================================");
         Scanner scanner = new Scanner(System.in);
@@ -73,15 +77,21 @@ public class SocialMediaApp {
     }
 
     public User confirmUser(String username, String password) {
-        for (User user : users) {
+/*        for (User user : users) {
             if (user.getUsername().equals(username) && user.password(password)) {
                 return user;
             }
         }
-        return null;
+        return null;*/
+
+        return users.stream()
+                .filter(u -> u.getUsername().equals(username) && u.getPassword().equals(password))
+                .findFirst()
+                .orElse(null);
+
     }
 
-    public void displayUserMenu() {
+    public void displayUserMenu() throws IOException {
         System.out.println("==================================");
         Scanner scanner = new Scanner(System.in);
 
@@ -121,7 +131,7 @@ public class SocialMediaApp {
         }
     }
 
-    public void updateAccount() {
+    public void updateAccount() throws IOException {
         System.out.println("==================================");
         Scanner scanner = new Scanner(System.in);
 
@@ -142,69 +152,79 @@ public class SocialMediaApp {
         this.displayUserMenu();
     }
 
-        public void addNewPost() {
-            System.out.println("==================================");
-            Scanner scanner = new Scanner(System.in);
+    public void addNewPost() throws IOException {
+        System.out.println("==================================");
+        Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Enter Post ID: ");
-            int postId = scanner.nextInt();
-            System.out.print("Enter Post Text: ");
-            String postText = scanner.next();
+        System.out.print("Enter Post ID: ");
+        int postId = scanner.nextInt();
 
-            Post post = new Post(postId, postText);
-            loggedInUser.getPosts().add(post);
-            System.out.println("Post added successfully.");
-            this.displayUserMenu();
-        }
+        scanner.nextLine();
 
-        public  void updatePost() {
-            System.out.println("==================================");
-            Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter Post Text: ");
+        String postText = scanner.nextLine();
 
-            System.out.print("Enter Post ID to Update: ");
-            int postId = scanner.nextInt();
-            System.out.print("Enter New Post Text: ");
-            String newText = scanner.next();
+        Post post = new Post(postId, postText);
+        loggedInUser.getPosts().add(post);
+        this.savePosts();
 
-            Post post = findPostById(postId);
-            if (post != null) {
+        System.out.println("Post added successfully.");
+        this.displayUserMenu();
+    }
+
+    public void updatePost() throws IOException {
+        System.out.println("==================================");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Post ID to Update: ");
+        int postId = scanner.nextInt();
+        System.out.print("Enter New Post Text: ");
+        String newText = scanner.next();
+
+        Post post = findPostById(postId);
+        if (post != null) {
             post.setPostText(newText);
             System.out.println("Post updated successfully.");
-            }else {
+        } else {
             System.out.println("Post not found.");
-            }
-
-             this.displayUserMenu();
-         }
-
-        public void deletePost() {
-            System.out.println("==================================");
-            Scanner scanner = new Scanner(System.in);
-
-            System.out.print("Enter Post ID to Delete: ");
-            int postId = scanner.nextInt();
-
-            Post post = findPostById(postId);
-            if (post != null) {
-            loggedInUser.getPosts().remove(post);
-            System.out.println("Post deleted successfully.");
-            }else {
-            System.out.println("Post not found.");
-            }
-
-            this.displayUserMenu();
         }
 
-        public Post findPostById(int postId) {
-        for (Post post : loggedInUser.getPosts()) {
+        this.displayUserMenu();
+    }
+
+    public void deletePost() throws IOException {
+        System.out.println("==================================");
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Post ID to Delete: ");
+        int postId = scanner.nextInt();
+
+        Post post = findPostById(postId);
+        if (post != null) {
+            loggedInUser.getPosts().remove(post);
+            System.out.println("Post deleted successfully.");
+        } else {
+            System.out.println("Post not found.");
+        }
+
+        this.displayUserMenu();
+    }
+
+    public Post findPostById(int postId) {
+/*        for (Post post : loggedInUser.getPosts()) {
             if (post.getPostId() == postId) {
                 return post;
             }
         }
-        return null;
+        return null;*/
+
+        return loggedInUser.getPosts().stream()
+                .filter(post -> post.getPostId() == postId)
+                .findFirst()
+                .orElse(null);
     }
 
-    public void commentOnPost() {
+    public void commentOnPost() throws IOException {
         System.out.println("==================================");
         Scanner scanner = new Scanner(System.in);
 
@@ -220,23 +240,23 @@ public class SocialMediaApp {
             Comment comment = new Comment(commentId, loggedInUser.getUserId(), commentText);
             post.addComment(comment);
             System.out.println("Comment added successfully.");
-        }else{
+        } else {
             System.out.println("Post not found.");
         }
 
         this.displayUserMenu();
     }
 
-        public void likePost() {
-            System.out.println("==================================");
-            Scanner scanner = new Scanner(System.in);
+    public void likePost() throws IOException {
+        System.out.println("==================================");
+        Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Enter Post ID to Like: ");
-            int postId = scanner.nextInt();
-            System.out.print("Do you like the post? (yes/no): ");
-            String like = scanner.next();
+        System.out.print("Enter Post ID to Like: ");
+        int postId = scanner.nextInt();
+        System.out.print("Do you like the post? (yes/no): ");
+        String like = scanner.next();
 
-            if (like.equalsIgnoreCase("yes")) {
+        if (like.equalsIgnoreCase("yes")) {
             Post post = findPostById(postId);
             if (post != null) {
                 post.addLike(loggedInUser.getUserId());
@@ -249,44 +269,47 @@ public class SocialMediaApp {
         this.displayUserMenu();
     }
 
-        public void deleteComment() {
-            System.out.println("==================================");
-            Scanner scanner = new Scanner(System.in);
+    public void deleteComment() throws IOException {
+        System.out.println("==================================");
+        Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Enter Post ID: ");
-            int postId = scanner.nextInt();
-            System.out.print("Enter Comment ID to Delete: ");
-            int commentId = scanner.nextInt();
+        System.out.print("Enter Post ID: ");
+        int postId = scanner.nextInt();
+        System.out.print("Enter Comment ID to Delete: ");
+        int commentId = scanner.nextInt();
 
-            Post post = findPostById(postId);
-            if (post != null) {
-            List<Comment> comments = post.getComments();  // Get the list of comments
+        Post post = findPostById(postId);
+        if (post != null) {
+            List<Comment> comments = post.getComments();
 
-                for (int i = 0; i < comments.size(); i++) {
+            for (int i = 0; i < comments.size(); i++) {
 
-                    if (comments.get(i).getCommentId() == commentId) {
-                        comments.remove(i);  // Remove the comment at index i
-                        System.out.println("Comment deleted successfully.");
-                        return;// Exit the method once the comment is removed
-                    }
+                if (comments.get(i).getCommentId() == commentId) {
+                    comments.remove(i);
+                    System.out.println("Comment deleted successfully.");
+                    return;
                 }
-            }else {
-                System.out.println("Post not found");
             }
-            this.displayUserMenu();
-        
+        } else {
+            System.out.println("Post not found");
+        }
+        this.displayUserMenu();
+
     }
 
-        public void showAllFeed() {
-            //System.out.println("==================================");
-             for (Post post : loggedInUser.getPosts()) {
+    public void showAllFeed() throws IOException {
+
+/*        for (Post post : loggedInUser.getPosts()) {
             System.out.println(post);
             for (Comment comment : post.getComments()) {
                 System.out.println("\t" + comment);
             }
         }
-             this.displayUserMenu();
+        this.displayUserMenu();*/
 
+        loggedInUser.getPosts().forEach(post -> {System.out.println(post);
+            post.getComments().forEach(comment -> System.out.println("\t" + comment));
+        });
     }
 
     public void logout() {
@@ -294,6 +317,72 @@ public class SocialMediaApp {
         System.out.println("Logged out successfully.");
     }
 
+    public void saveUsers() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("users.txt", true)); // append = true
+
+        for (User user : users) {
+            writer.write(user.getUserId() + "," + user.getUsername() + "," + user.getEmail() + "," +
+                    user.getContact() + "," + user.getPassword());
+            writer.newLine();
+        }
+
+        writer.close();
+    }
+
+    public void loadUsers() throws IOException {
+        File file = new File("users.txt");
+        if (!file.exists()) return;
+
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] array = line.split(",");
+            if (array.length == 5) {
+                User user = new User(array[0], array[1], array[2], array[3], array[4]);
+                users.add(user);
+            }
+        }
+        reader.close();
+    }
+
+    public void savePosts() throws IOException {
+        BufferedWriter writer = new BufferedWriter(new FileWriter("posts.txt"));
+
+        for (User user : users) {
+            for (Post post : user.getPosts()) {
+                writer.write(user.getUserId() + "," + post.getPostId() + "," + post.getPostText());
+                writer.newLine();
+            }
+        }
+
+        writer.close();
+    }
+
+    public void loadPosts() throws IOException {
+        File file = new File("posts.txt");
+        if (!file.exists()) return;
+
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            String[] array = line.split(",", 3);
+            if (array.length == 3) {
+                String userId = array[0];
+                int postId = Integer.parseInt(array[1]);
+                String postText = array[2];
+
+                Post post = new Post(postId, postText);
+
+                for (User user : users) {
+                    if (user.getUserId().equals(userId)) {
+                        user.getPosts().add(post);
+                        break;
+                    }
+                }
+            }
+        }
+        reader.close();
+    }
 }
 
 
