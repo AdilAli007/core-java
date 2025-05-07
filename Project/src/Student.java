@@ -9,10 +9,6 @@ public class Student {
         this.studentRollNumber = studentRollNumber;
     }
 
-    public Student(){
-
-    }
-
     public String getStudentId() {
         return studentId;
     }

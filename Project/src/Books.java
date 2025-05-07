@@ -3,13 +3,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Books {
-    private String bookId ;
+    private int bookId ;
     private String bookName ;
     private String bookISBN ;
     private String authorName ;
     private long quantity ;
 
-    public Books(String bookId, String bookName, String bookISBN, String authorName, long quantity) {
+    public Books(int bookId, String bookName, String bookISBN, String authorName, long quantity) {
         this.bookId = bookId;
         this.bookName = bookName;
         this.bookISBN = bookISBN;
@@ -17,16 +17,11 @@ public class Books {
         this.quantity = quantity;
     }
 
-    public Books() {
-
-    }
-
-
-    public String getBookId() {
+    public int getBookId() {
         return bookId;
     }
 
-    public void setBookId(String bookId) {
+    public void setBookId(int bookId) {
         this.bookId = bookId;
     }
 

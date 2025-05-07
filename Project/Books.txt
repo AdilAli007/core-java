@@ -1,0 +1,30 @@
+Book ID, Book Name, Book ISBN, Author Name, Quantity
+101, JAVA BOOK, 234 JAVA, JOHN, 10
+102, C++ BOOK, 12C++, JOCOB, 10
+103, C# BOOK, 101C#, MICHEAL, 10
+104, PYTHON BOOK, 23PHY, CLARKE, 10
+105, .NET BOOK, 14NET, POINTING, 10
+Books{bookId='106', bookName='POWER OF DUA', bookISBN='DD123', authorName='ALIYAH UME RAYYAN', quantity=10}
+Books{bookId='107', bookName='POWER', bookISBN='PP123', authorName='RACHEL ', quantity=10}
+Books{bookId='108', bookName='HUMAN', bookISBN='HH123', authorName='JACOB', quantity=10}
+Book ID, Book Name, Book ISBN, Author Name, Quantity
+Books{bookId='106', bookName='POWER OF DUA', bookISBN='DD123', authorName='ALIYAH UME RAYYAN', quantity=10}
+Books{bookId='107', bookName='POWER', bookISBN='PP123', authorName='RACHEL ', quantity=10}
+Books{bookId='108', bookName='HUMAN', bookISBN='HH123', authorName='JACOB', quantity=9}
+Book ID, Book Name, Book ISBN, Author Name, Quantity
+Books{bookId='106', bookName='POWER OF DUA', bookISBN='DD123', authorName='ALIYAH UME RAYYAN', quantity=10}
+Books{bookId='107', bookName='POWER', bookISBN='PP123', authorName='RACHEL ', quantity=9}
+Books{bookId='108', bookName='HUMAN', bookISBN='HH123', authorName='JACOB', quantity=9}
+Book ID, Book Name, Book ISBN, Author Name, Quantity
+Books{bookId='106', bookName='POWER OF DUA', bookISBN='DD123', authorName='ALIYAH UME RAYYAN', quantity=9}
+Books{bookId='107', bookName='POWER', bookISBN='PP123', authorName='RACHEL ', quantity=9}
+Books{bookId='108', bookName='HUMAN', bookISBN='HH123', authorName='JACOB', quantity=9}
+Book ID, Book Name, Book ISBN, Author Name, Quantity
+Books{bookId='106', bookName='POWER OF DUA', bookISBN='DD123', authorName='ALIYAH UME RAYYAN', quantity=8}
+Books{bookId='107', bookName='POWER', bookISBN='PP123', authorName='RACHEL ', quantity=9}
+Books{bookId='108', bookName='HUMAN', bookISBN='HH123', authorName='JACOB', quantity=9}
+Book ID, Book Name, Book ISBN, Author Name, Quantity
+Books{bookId='106', bookName='POWER OF DUA', bookISBN='DD123', authorName='ALIYAH UME RAYYAN', quantity=9}
+Books{bookId='107', bookName='POWER', bookISBN='PP123', authorName='RACHEL ', quantity=9}
+Books{bookId='108', bookName='HUMAN', bookISBN='HH123', authorName='JACOB', quantity=9}
+Books{bookId='108', bookName='ADIL ', bookISBN='AD123', authorName='ADIL ALI', quantity=10}
