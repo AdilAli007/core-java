@@ -13,7 +13,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-public class StudentPanel extends JPanel {
+
+public class StudentPanel extends javax.swing.JFrame {
 
 private final JTextField txtId = new JTextField();
 private final JTextField txtName = new JTextField();
@@ -35,20 +36,22 @@ new Object[]{"ID", "Name", "Roll Number", "Dept Code", "Dept Name"}, 0
 };
 private final JTable table = new JTable(model);
 
-private final StudentDao studentDao = new StudentDaoImpl();
+private final StudentDao studentDao = new StudentDaoImpl();    
+    
+    public StudentPanel() {
+        initComponents();
+    setLayout(new BorderLayout(10, 10));
+    add(buildForm(), BorderLayout.NORTH);
+    add(new JScrollPane(table), BorderLayout.CENTER);
+    add(buildButtons(), BorderLayout.SOUTH);
 
-public StudentPanel() {
-setLayout(new BorderLayout(10, 10));
-add(buildForm(), BorderLayout.NORTH);
-add(new JScrollPane(table), BorderLayout.CENTER);
-add(buildButtons(), BorderLayout.SOUTH);
 
+    hookActions();
+    loadStudents();    
+        
+    }
 
-hookActions();
-loadStudents();
-}
-
-private JPanel buildForm() {
+    private JPanel buildForm() {
 JPanel form = new JPanel(new GridBagLayout());
 GridBagConstraints c = new GridBagConstraints();
 c.insets = new Insets(6,6,6,6);
@@ -245,10 +248,37 @@ txtDeptCode.setText("");
 txtDeptName.setText("");
 table.clearSelection();
 }
+   
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
 
+   
+    public static void main(String args[]) {
+        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new StudentPanel().setVisible(true);
+            }
+        });
+    }
 
-
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
 }

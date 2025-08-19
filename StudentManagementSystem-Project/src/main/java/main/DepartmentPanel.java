@@ -12,8 +12,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.List;
 
-public class DepartmentPanel extends JPanel {
-
+public class DepartmentPanel extends javax.swing.JFrame {
 private final JTextField txtCode = new JTextField();
 private final JTextField txtName = new JTextField();
 
@@ -34,18 +33,19 @@ new Object[]{"Dept Code", "Dept Name"}, 0
 private final JTable table = new JTable(model);
 
 
-private final DepartmentDao departmentDao = new DepartmentDaoImpl();    
-    
-public DepartmentPanel() {
-setLayout(new BorderLayout(10, 10));
-add(buildForm(), BorderLayout.NORTH);
-add(new JScrollPane(table), BorderLayout.CENTER);
-add(buildButtons(), BorderLayout.SOUTH);
+private final DepartmentDao departmentDao = new DepartmentDaoImpl();
+   
+    public DepartmentPanel() {
+    initComponents();
+    setLayout(new BorderLayout(10, 10));
+    add(buildForm(), BorderLayout.NORTH);
+    add(new JScrollPane(table), BorderLayout.CENTER);
+    add(buildButtons(), BorderLayout.SOUTH);
 
 
-hookActions();
-loadDepartments();
-}
+    hookActions();
+    loadDepartments();
+    }
 
 private JPanel buildForm() {
 JPanel form = new JPanel(new GridBagLayout());
@@ -180,6 +180,32 @@ txtName.setText("");
 table.clearSelection();
 }
 
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    
+    public static void main(String args[]) {
+    SwingUtilities.invokeLater(() -> new MainFrame().setVisible(true));
 }
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // End of variables declaration//GEN-END:variables
+
