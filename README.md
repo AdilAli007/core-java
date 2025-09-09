@@ -15,7 +15,11 @@
 ![image alt](https://github.com/AdilAli007/core-java/blob/212a9a45990eab44832dae8f47bb73b78adce937/Screenshot%20(11).png)
 ![image alt](https://github.com/AdilAli007/core-java/blob/66af16c8d13c2e7233006df438f58d73aa5b35ce/Screenshot%20(12).png)
 # Online-Shopping-Management-System Images
-<img width="1920" height="1080" alt="Screenshot (48)" src="https://github.com/user-attachments/assets/67a47a80-d230-4bd9-9e52-cfa40da0c421" />
+
+
+
+<img width="1920" height="1080" alt="Screenshot (48)" src="https://github.com/user-at<img width="1920" height="1080" alt="Screenshot (47)" src="https://github.com/user-attachments/assets/36fd4dca-8959-4916-b56b-89044098d6fe" />
+tachments/assets/67a47a80-d230-4bd9-9e52-cfa40da0c421" />
 
 <img width="1920" height="1080" alt="Screenshot (47)" src="https://github.com/user-attachment<img width="1920" height="1080" alt="Screenshot (49)" src="https://github.com/user-attachments/assets/4d92d477-5962-42ed-a818-d3fd3c748508" />
 s/assets/66a17de2-95f0-48db-ab4d-6eb4777d972d" />
